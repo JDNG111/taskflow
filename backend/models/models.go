@@ -14,6 +14,7 @@ type Project struct {
     ID          int       `json:"id"`
     Name        string    `json:"name"`
     Description string    `json:"description"`
+    Category    string    `json:"category"`
     OwnerID     int       `json:"owner_id"`
     CreatedAt   time.Time `json:"created_at"`
 }
@@ -23,6 +24,8 @@ type Task struct {
     Title       string    `json:"title"`
     Description string    `json:"description"`
     Status      string    `json:"status"`
+    Priority    string    `json:"priority"`
+    Category    string    `json:"category"`
     AssignedTo  int       `json:"assigned_to"`
     ProjectID   int       `json:"project_id"`
     CreatedBy   int       `json:"created_by"`

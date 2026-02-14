@@ -33,6 +33,7 @@ func main() {
     api.HandleFunc("/tasks", handlers.CreateTask).Methods("POST")
     api.HandleFunc("/tasks/{id}", handlers.UpdateTask).Methods("PUT")
     api.HandleFunc("/tasks/{id}", handlers.DeleteTask).Methods("DELETE")
+api.HandleFunc("/stats", handlers.GetStats).Methods("GET")
     
     // WebSocket
     router.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {

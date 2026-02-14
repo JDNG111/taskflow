@@ -3,16 +3,13 @@ package handlers
 import (
     "encoding/json"
     "net/http"
-    // "strconv"      // Comenta si no se usa
     "taskflow/database"
     "taskflow/models"
-    
-    // "github.com/gorilla/mux"  // Comenta si no se usa
 )
 
 func GetProjects(w http.ResponseWriter, r *http.Request) {
     rows, err := database.DB.Query(`
-        SELECT id, name, description, owner_id, created_at 
+        SELECT id, name, description, category, owner_id, created_at 
         FROM projects 
         ORDER BY created_at DESC
     `)
@@ -25,7 +22,7 @@ func GetProjects(w http.ResponseWriter, r *http.Request) {
     var projects []models.Project
     for rows.Next() {
         var p models.Project
-        rows.Scan(&p.ID, &p.Name, &p.Description, &p.OwnerID, &p.CreatedAt)
+        rows.Scan(&p.ID, &p.Name, &p.Description, &p.Category, &p.OwnerID, &p.CreatedAt)
         projects = append(projects, p)
     }
 
@@ -38,8 +35,8 @@ func CreateProject(w http.ResponseWriter, r *http.Request) {
 
     var projectID int
     err := database.DB.QueryRow(
-        "INSERT INTO projects (name, description, owner_id) VALUES ($1, $2, $3) RETURNING id",
-        project.Name, project.Description, project.OwnerID,
+        "INSERT INTO projects (name, description, category, owner_id) VALUES ($1, $2, $3, $4) RETURNING id",
+        project.Name, project.Description, project.Category, project.OwnerID,
     ).Scan(&projectID)
 
     if err != nil {
