@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 SkillFlow
+# 🚀 Taskflow
 
 ### *Gestor Inteligente de Aprendizaje y Proyectos*
 
