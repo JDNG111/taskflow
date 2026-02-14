@@ -358,7 +358,7 @@ of this software...
 
 ### ⭐ Si te gusta este proyecto, dale una estrella en GitHub ⭐
 
-Hecho con ❤️ por [Tu Nombre](https://github.com/JDNG111)
+Hecho con ❤️ por [Navarro](https://github.com/JDNG111)
 
 [⬆ Volver arriba](#-skillflow)
 
